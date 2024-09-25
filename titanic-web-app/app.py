@@ -56,4 +56,6 @@ def predict():
     return f"<h2>Tasa de Supervivencia Estimada: {survival_rate}%</h2>"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Obtener el puerto del entorno de Google Cloud Run o usar el 8080
+    port = int(os.environ.get("PORT", 8080))
+    app.run(host='0.0.0.0', port=port)
